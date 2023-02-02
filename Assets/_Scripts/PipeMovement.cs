@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PipeMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 2f;
+    [SerializeField] private float speed = 7f;
     private float leftEdge;
 
     private void Start()

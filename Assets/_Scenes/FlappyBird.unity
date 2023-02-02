@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30fa83135d0dbf46b6f80cd6b8aa14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgMoveSpeed: 1.2
+  bgMoveSpeed: 2
 --- !u!114 &168864579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1174,9 +1174,9 @@ MonoBehaviour:
   scoreInGameText: {fileID: 1238873609}
   scoreGameOverText: {fileID: 1500166679}
   highScoreText: {fileID: 1920481059}
-  gravity: -2
-  force: 2
-  tilt: 2
+  gravity: -18
+  force: 6
+  tilt: 4
   birdImages:
   - {fileID: 21300000, guid: 83a42ef7bad3f014fac1057716f9017e, type: 3}
   - {fileID: 21300000, guid: 9c6598a0241089e4a9f887ee37ee2cc9, type: 3}
@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30fa83135d0dbf46b6f80cd6b8aa14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgMoveSpeed: 0.4
+  bgMoveSpeed: 1.5
 --- !u!1 &1019075280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2717,7 +2717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipePrefab: {fileID: 4609259602817431133, guid: ef8be6019ac18e341982e771c611566d, type: 3}
-  spawnRate: 2.5
+  spawnRate: 1.5
   minHeight: -100
   maxHeight: 100
 --- !u!1 &1630401288
