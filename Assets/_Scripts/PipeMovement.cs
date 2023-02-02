@@ -6,18 +6,20 @@ using UnityEngine;
 public class PipeMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;
+    private float leftEdge;
+
+    private void Start()
+    {
+        leftEdge = Camera.main.ScreenToWorldPoint(Vector3.zero).x - 1f;
+    }
 
     void Update()
     {
         transform.position += Vector3.left * speed;
-    }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("SceneEdge"))
+        if (transform.position.x < leftEdge)
         {
             Destroy(gameObject);
-            print("ups");
         }
     }
 }
