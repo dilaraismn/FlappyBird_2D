@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverUI, inGameUI, pauseUI;
+    [SerializeField] private TMP_Text scoreInGameText, scoreGameOverText;
     [SerializeField] private float gravity;
     [SerializeField] private float force;
     [SerializeField] private float tilt;
@@ -14,6 +16,7 @@ public class Player : MonoBehaviour
     private int birdImageIndex;
     private Vector3 direction;
     private Image birdImage;
+    private int score;
     public static bool isPause, isGameOver;
 
     private void Awake()
@@ -25,6 +28,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 0;
+        score = 0;
         isGameOver = false;
         InvokeRepeating(nameof(AnimateBirdImage), 0.2f, 0.2f);
     }
@@ -32,6 +36,8 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (!UIManager.isGameStarted || isGameOver || isPause) return;
+
+        scoreInGameText.text = score.ToString();
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -73,11 +79,12 @@ public class Player : MonoBehaviour
             isGameOver = true;
             inGameUI.SetActive(false);
             gameOverUI.SetActive(true);
+            scoreGameOverText.text = score.ToString();
         }
 
         if (other.CompareTag("Score"))
         {
-            
+            score++;
         }
     }
 

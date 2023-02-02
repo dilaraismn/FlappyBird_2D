@@ -1171,6 +1171,8 @@ MonoBehaviour:
   gameOverUI: {fileID: 186061538}
   inGameUI: {fileID: 555832077}
   pauseUI: {fileID: 1453069542}
+  scoreInGameText: {fileID: 1238873609}
+  scoreGameOverText: {fileID: 1500166679}
   gravity: -2
   force: 2
   tilt: 2
