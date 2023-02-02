@@ -23,6 +23,9 @@ public class PipeSpawner : MonoBehaviour
 
     private void SpawnPipe()
     {
+        if (!UIManager.isGameStarted) return;
+        if (Player.isPause) return;
+        
         GameObject pipes = Instantiate(pipePrefab, transform.position, Quaternion.identity, transform);
         pipes.transform.position += Vector3.up * Random.Range(minHeight, maxHeight);
     }
