@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private GameObject gameOverUI, inGameUI;
     [SerializeField] private float gravity;
     [SerializeField] private float force;
     [SerializeField] private float tilt;
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
     private int birdImageIndex;
     private Vector3 direction;
     private Image birdImage;
-    public static bool isPause;
+    public static bool isPause, isGameOver;
 
     private void Awake()
     {
@@ -23,14 +24,15 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-
+        Time.timeScale = 0;
+        isGameOver = false;
         InvokeRepeating(nameof(AnimateBirdImage), 0.2f, 0.2f);
     }
 
     private void Update()
     {
-        if (!UIManager.isGameStarted) return;
-       
+        if (!UIManager.isGameStarted || isGameOver) return;
+
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             direction = Vector3.up * force;
@@ -53,7 +55,10 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
-            
+            Time.timeScale = 0;
+            isGameOver = true;
+            inGameUI.SetActive(false);
+            gameOverUI.SetActive(true);
         }
 
         if (other.CompareTag("Score"))

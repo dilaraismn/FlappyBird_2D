@@ -15,14 +15,14 @@ public class PipeMovement : MonoBehaviour
 
     void Update()
     {
-        if (!UIManager.isGameStarted) return;
-        if (Player.isPause) return;
-        
-        transform.position += Vector3.left * speed;
-
-        if (transform.position.x < leftEdge)
+        if (UIManager.isGameStarted && !Player.isPause && !Player.isGameOver)
         {
-            Destroy(gameObject);
+            transform.position += Vector3.left * speed;
+
+            if (transform.position.x < leftEdge)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

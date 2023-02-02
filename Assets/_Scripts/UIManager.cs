@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -48,5 +49,10 @@ public class UIManager : MonoBehaviour
         isGameStarted = true;
         startUI.SetActive(false);
         inGameUI.SetActive(true);
+    }
+
+    public void Button_Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

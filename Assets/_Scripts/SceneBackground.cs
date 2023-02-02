@@ -16,8 +16,9 @@ public class SceneBackground : MonoBehaviour
 
     private void Update()
     {
-        if (!UIManager.isGameStarted) return;
-        if (Player.isPause) return;
-        _rawImage.material.mainTextureOffset += new Vector2(bgMoveSpeed * Time.deltaTime, 0);
+        if (UIManager.isGameStarted && !Player.isPause && !Player.isGameOver)
+        {
+            _rawImage.material.mainTextureOffset += new Vector2(bgMoveSpeed * Time.deltaTime, 0);
+        }
     }
 }
