@@ -23,24 +23,7 @@ public class UIManager : MonoBehaviour
         isGameStarted = false;
         startUI.SetActive(true);
     }
-
-    private void Update()
-    {
-        if (Player.isPause)
-        {
-            Time.timeScale = 0;
-            player.enabled = false;
-            pauseUI.SetActive(true);
-            inGameUI.SetActive(false);
-        }
-        else if(!Player.isPause)
-        {
-            Time.timeScale = 1;
-            player.enabled = true;
-            pauseUI.SetActive(false);
-            inGameUI.SetActive(true);
-        }
-    }
+    
 
     public void Button_StartGame()
     {
@@ -49,6 +32,11 @@ public class UIManager : MonoBehaviour
         isGameStarted = true;
         startUI.SetActive(false);
         inGameUI.SetActive(true);
+    }
+
+    public void Button_Continue()
+    {
+        Player.isPause = false;
     }
 
     public void Button_Retry()

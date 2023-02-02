@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private GameObject gameOverUI, inGameUI;
+    [SerializeField] private GameObject gameOverUI, inGameUI, pauseUI;
     [SerializeField] private float gravity;
     [SerializeField] private float force;
     [SerializeField] private float tilt;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (!UIManager.isGameStarted || isGameOver) return;
+        if (!UIManager.isGameStarted || isGameOver || isPause) return;
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -49,6 +49,20 @@ public class Player : MonoBehaviour
         {
             isPause = !isPause;
         }
+        
+        if (isPause)
+        {
+            Time.timeScale = 0;
+            pauseUI.SetActive(true);
+            inGameUI.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            pauseUI.SetActive(false);
+            inGameUI.SetActive(true);
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
