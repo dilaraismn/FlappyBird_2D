@@ -34,6 +34,19 @@ public class Player : MonoBehaviour
         transform.position += direction;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            FindObjectOfType<GameManager>().GameOver();
+        }
+
+        if (other.CompareTag("Score"))
+        {
+            FindObjectOfType<GameManager>().IncreaseScore();
+        }
+    }
+
     private void AnimateBirdImage()
     {
         birdImageIndex++;
