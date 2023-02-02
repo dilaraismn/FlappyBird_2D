@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: bf062f7581370c147ace85450b4a93b8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - FlappyBirdy
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 938fab27f5e6dd243813a11d9f39c0d3, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
