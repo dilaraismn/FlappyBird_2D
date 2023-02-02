@@ -1173,6 +1173,7 @@ MonoBehaviour:
   pauseUI: {fileID: 1453069542}
   scoreInGameText: {fileID: 1238873609}
   scoreGameOverText: {fileID: 1500166679}
+  highScoreText: {fileID: 1920481059}
   gravity: -2
   force: 2
   tilt: 2

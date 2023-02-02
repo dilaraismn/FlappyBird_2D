@@ -8,7 +8,7 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverUI, inGameUI, pauseUI;
-    [SerializeField] private TMP_Text scoreInGameText, scoreGameOverText;
+    [SerializeField] private TMP_Text scoreInGameText, scoreGameOverText, highScoreText;
     [SerializeField] private float gravity;
     [SerializeField] private float force;
     [SerializeField] private float tilt;
@@ -75,11 +75,18 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
+            if (score > PlayerPrefs.GetInt("HighScore"))
+            {
+                PlayerPrefs.SetInt ("HighScore", score);
+                PlayerPrefs.Save();
+            }
+
             Time.timeScale = 0;
             isGameOver = true;
             inGameUI.SetActive(false);
             gameOverUI.SetActive(true);
             scoreGameOverText.text = score.ToString();
+            highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
         }
 
         if (other.CompareTag("Score"))
